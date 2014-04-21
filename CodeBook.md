@@ -182,11 +182,11 @@ Overall the rationale for the naming convention is as follows. Note that
 we choose to have underscores in our names rather than not.
 
 *   Since values for measures are averages across a (*subject*, *activity*)
-    pair, value of each (subject, activity, measure) may be taken to be an
-    independent observation. This is not the case in the original data set
-    where each observations has multiple measures that are computed "at the
-    same time"
-    
+    pair, value of each (*subject*, *activity*, *measure*) may be taken to
+    be an independent observation. This is not the case in the original data
+    set where each observations has multiple measures that are computed "at
+    the same time"
+
 *   Its easy to read; not having underscores makes it very difficult to
     read and locate data during exploration
 

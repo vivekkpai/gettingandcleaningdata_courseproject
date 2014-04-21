@@ -103,10 +103,26 @@ CodeBook.md available in this repository.
     example, if the zipped archive is already available in the directory
     *\~/tom/assignment* passing this path to *create\_summary()* will
     avoid downloading the data set. In order to do this, modify the
-    command in step 3 above as follows.
+    command in step 3 above as follows:
     ```R
     create_summary("~/tom/assignment")
     ```
+    In this mode, the data archive is expected to be in the current
+    working directory or in the directory specified by the parameter
+    to *create_summary()* as shown above
+
+-   If the data is already unzipped, then data is expected to be in a
+    subdirectory of the current working directory and named as if it
+    were unzipped. The name of the sub-directory is "UCI HAR Dataset"
+    (without the quotes)
+
+-   **The script does not run if the data is directly placed in the
+    current working directory. This is not supported by this script**.
+    In this case, the script will download the dataset
+
+-   If the data is to be downloaded, an Internet connection is required.
+    Please do ensure that you are indeed able to connect to the the
+    UCI Machine Learning Repository web site        
 
 # High-level description the script
 

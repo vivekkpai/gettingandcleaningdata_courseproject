@@ -847,4 +847,11 @@ load_summary <- function(download_dir = getwd()) {
     summary <- read.csv(file = summary_file, header = TRUE, quote = "")
 }
 
-cat("")
+cat("To summarize the dataset, run at the R console:\n")
+cat("\tcreate_summary()\n")
+cat("The function will download the dataset if not availble already locally.\n\n")
+cat("To load the summarized dataset, run at the R console:\n") 
+cat("\tload_summary()\n")
+cat("The function will return a data frame in the long format as described in\n")
+cat("CodeBook.md. To convert to a wide format, then call to_wide_format(). see\n")
+cat("comments in the script for more details\n\n")

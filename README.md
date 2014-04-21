@@ -29,6 +29,7 @@ on Linux variants***
 # Structure of the submission
 
 The structure of the submission is simple. It consists of:
+
 1. One script in this Github repository named run\_analysis.R. This file 
    performs all of the the required steps in order to generate the data in
    the final "tidy" format

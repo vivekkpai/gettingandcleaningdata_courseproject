@@ -28,10 +28,15 @@ on Linux variants***
 
 # Structure of the submission
 
-The structure of the submission is trivial. It consists of one file in
-this Github repository named run\_analysis.R. This file performs all of
-the the required steps in order to generate the data in the final "tidy"
-format.
+The structure of the submission is simple. It consists of:
+1. One script in this Github repository named run\_analysis.R. This file 
+   performs all of the the required steps in order to generate the data in
+   the final "tidy" format
+
+2. A file which describe the transformations and dataset format, named 
+   CodeBook.md
+
+3. A README.md file (this file)
 
 # Intallation and execution
 

@@ -76,7 +76,7 @@ capability (and indeed, since we only want some of the columns, it too
 can be viewed as cleansing of the data).
 
 ***NOTE: It is assumed that the Inertial data is not required for this
-submission. Consequently, the Intertial data is ignored in the script***
+submission. Consequently, the Inertial data is ignored in the script***
 
 ## Cleaning the Data
 

@@ -130,52 +130,28 @@ The names have four parts separated by underscores.
     Substrings from the **features.txt** file; their mapping to our
     operation string; and the meaning is summarized in the table below.
 
-    | **Substring from      | **Operation**         | **Meaning**           |
-    | features.txt**        |                       |                       |
-    |-----------------------|-----------------------|-----------------------|
-    | mean()                | mean                  | Mean (average)        |
-    |-----------------------|-----------------------|-----------------------|
-    | std()                 | std                   | Standard Deviation    |
-    |-----------------------|-----------------------|-----------------------|
-    | mag-mean()            | meanmag               | Mean of the magnitude |
-    |-----------------------|-----------------------|-----------------------|
-    | mag-std()             | stdmag                | Standard Deviation of |
-    |                       |                       | the magnitude         |
-
+    | **Substring from features.txt**     | **Operation**         | **Meaning**                        |
+    | mean()                              | mean                  | Mean (average)                     |
+    | std()                               | std                   | Standard Deviation                 |
+    | mag-mean()                          | meanmag               | Mean of the magnitude              |
+    | mag-std()                           | stdmag                | Standard Deviation of the magnitude|
+    
 3.  *Measure base name:* There are nine types of measurements that are
     available in the data sets. We map each one of these measures into a
     "friendly" basename. The measure prefixes from **features.txt** and
     their mapping to our basename is given in the following table.
 
-    | **Measure Prefix**    | **Basename**          | **Meaning**           |
-    |-----------------------|-----------------------|-----------------------|
-    | tBodyAcc or tbodyacc  | linearacceleration    | Rate of change of     |
-    |                       |                       | linear velocity       |
-    |-----------------------|-----------------------|-----------------------|
-    | tBodyAccJerk or       | linearjerk            | Rate of change of     |
-    | tbodyaccjerk          |                       | linear velocity       |
-    |-----------------------|-----------------------|-----------------------|
-    | tBodyGyro or          | angularacceleration   | Rate of change of     |
-    | tbodygyro             |                       | angular velocity      |
-    |-----------------------|-----------------------|-----------------------|
-    | tBodyGyroJerk or      | angularjerk           | Rate of change of     |
-    | tbodygyrojerk         |                       | angular acceleration  |
-    |-----------------------|-----------------------|-----------------------|
-    | tGravityAcc or        | gravityacceleration   | Rate of change of     |
-    | tgravityacc           |                       | velocity due to       |
-    |                       |                       | gravity               |
-    |-----------------------|-----------------------|-----------------------|
-    | fBodyAcc or fbodyacc  | frequency of linear   | Correspondingly in    |
-    |                       | acceleration          | frequency domain      |
-    |-----------------------|-----------------------|-----------------------|
-    | fBodyAccJerk or       | frequency of linear   | Correspondingly in    |
-    | fbodyaccjerk          | jerk                  | frequency domain      |
-    |-----------------------|-----------------------|-----------------------|
-    | fBodyGyro or          | frequency of angular  | Correspondingly in    |
-    | fbodygyro             | acceleration          | frequency domain      |
-    |-----------------------|-----------------------|-----------------------|
-    | fBodyGyroJerk or      | frequency of angular  | Correspondingly in    |
-    | fbodygyrojerk         | jerk                  | frequency domain      |
+    | **Measure Prefix**                | **Basename**                      | **Meaning**                                  |
+    |-----------------------------------|-----------------------------------|----------------------------------------------|
+    | tBodyAcc or tbodyacc              | linearacceleration                | Rate of change of linear velocity            |
+    | tBodyAccJerk or tbodyaccjerk      | linearjerk                        | Rate of change of linear acceleration        |
+    | tBodyGyro or tbodygyro            | angularacceleration               | Rate of change of angular velocity           |
+    | tBodyGyroJerk or tbodygyrojerk    | angularjerk                       | Rate of change of angular acceleration       |
+    | tGravityAcc or tgravityacc        | gravityacceleration               | Rate of change of velocity due to gravity    |
+    | fBodyAcc or fbodyacc              | frequency of linear acceleration  | Correspondingly in the frequency domain      |
+    | fBodyAccJerk or fbodyaccjerk      | frequency of linear jerk          | Correspondingly in the frequency domain      |
+    | fBodyGyro or fbodygyro            | frequency of angular acceleration | Correspondingly in the frequency domain      |
+    | fBodyGyroJerk or fbodygyrojerk    | frequency of angular jerk         | Correspondingly in the frequency domain      |
 
 4.  *Suffix:* The suffixes are the axes along which the measurement is
     taken - x, y, z. Suffixes are not applicable to magnitude
@@ -302,28 +278,12 @@ OS agnostic). The file has the following structure.
 
 Each of the columns and their ranges is described below.
 
-| **Column**            | **Description**       | **Type**              | **Range**             |
-|-----------------------|-----------------------|-----------------------|-----------------------|
-| *subject*             | The subject           | integer               | [1, 30]               |
-|                       | performing some       |                       |                       |
-|                       | activity              |                       |                       |
-|-----------------------|-----------------------|-----------------------|-----------------------|
-| *activity*            | The activity that was | factor                | Levels: walking,      |
-|                       | monitored             |                       | walkingupstairs,      |
-|                       |                       |                       | walkingdownstairs,    |
-|                       |                       |                       | standing, sitting,    |
-|                       |                       |                       | laying                |
-|-----------------------|-----------------------|-----------------------|-----------------------|
-| *measure*             | The measure that was  | factor                | See the values below  |
-|                       | monitored             |                       | below. We specify it  |
-|                       |                       |                       | there as I couldn't   |
-|                       |                       |                       | get my editor to have |
-|                       |                       |                       | multiple values each  |
-|                       |                       |                       | on a newline in this  |
-|                       |                       |                       | table.                |
-|-----------------------|-----------------------|-----------------------|-----------------------|
-| *value*               | The mean value of the | numeric               |			            |
-|                       | measure               |                       |			            |
+| **Column**            | **Description**                               | **Type**              | **Range**                                                                          |
+|-----------------------|-----------------------|-----------------------|-----------------------|------------------------------------------------------------------------------------|
+| *subject*             | The subject performing some activty           | integer               | [1, 30]                                                                            |
+| *activity*            | The activity that was monitored               | factor                | Levels: walking, walkingupstairs, walkingdownstairs, standing, sitting, laying     |
+| *measure*             | The measure that was  monitored               | factor                | See the values below since tables can't have (apparently) newlines in md           |
+| *value*               | The mean value of the measure                 | numeric               |			                                                                         |
 
 The values for the *measures* is as follows. These follow the same
 convention as specified in the section *Cleaning the Data*. The '*No.'*
@@ -331,270 +291,74 @@ column specifies the index of the column in the wide format [as returned
 by the *to\_wide\_format()*] function. In this case, the first and
 second columns are (*subject, activity*).
 
-| No.                   | **Measure**           | **Description**       |
-|-----------------------|-----------------------|-----------------------|
-| 3                     | *freq\_mean\_angulara | Mean frequency of     |
-|                       | cceleration\_x*       | angular acceleration  |
-|                       |                       | along the x axis      |
-|-----------------------|-----------------------|-----------------------|
-| 4                     | *freq\_mean\_angulara | Mean frequency of     |
-|                       | cceleration\_y*       | angular acceleration  |
-|                       |                       | along the y axis      |
-|-----------------------|-----------------------|-----------------------|
-| 5                     | *freq\_mean\_angulara | Mean frequency of     |
-|                       | cceleration\_z*       | angular acceleration  |
-|                       |                       | along the z axis      |
-|-----------------------|-----------------------|-----------------------|
-| 6                     | *freq\_mean\_linearac | Mean frequency of     |
-|                       | celeration\_x*        | linear acceleration   |
-|                       |                       | along the x axis      |
-|-----------------------|-----------------------|-----------------------|
-| 7                     | *freq\_mean\_linearac | Mean frequency of     |
-|                       | celeration\_y*        | linear acceleration   |
-|                       |                       | along the y axis      |
-|-----------------------|-----------------------|-----------------------|
-| 8                     | *freq\_mean\_linearac | Mean frequency of     |
-|                       | celeration\_z*        | linear acceleration   |
-|                       |                       | along the z axis      |
-|-----------------------|-----------------------|-----------------------|
-| 9                     | *freq\_mean\_linearje | Mean frequency of     |
-|                       | rk\_x*                | linear jerk along the |
-|                       |                       | x axis                |
-|-----------------------|-----------------------|-----------------------|
-| 10                    | *freq\_mean\_linearje | Mean frequency of     |
-|                       | rk\_y*                | linear jerk along the |
-|                       |                       | y axis                |
-|-----------------------|-----------------------|-----------------------|
-| 11                    | *freq\_mean\_linearje | Mean frequency of     |
-|                       | rk\_z*                | linear jerk along the |
-|                       |                       | z axis                |
-|-----------------------|-----------------------|-----------------------|
-| 12                    | *freq\_meanmag\_angul | Mean frequency of     |
-|                       | aracceleration*       | magniture of angular  |
-|                       |                       | acceleration          |
-|-----------------------|-----------------------|-----------------------|
-| 13                    | *freq\_meanmag\_angul | Mean frequency of     |
-|                       | arjerk*               | magniture of angular  |
-|                       |                       | jerk                  |
-|-----------------------|-----------------------|-----------------------|
-| 14                    | *freq\_meanmag\_linea | Mean frequency of     |
-|                       | racceleration*        | magniture of linear   |
-|                       |                       | acceleration          |
-|-----------------------|-----------------------|-----------------------|
-| 15                    | *freq\_meanmag\_linea | Mean frequency of     |
-|                       | rjerk*                | magniture of linear   |
-|                       |                       | jerk                  |
-|-----------------------|-----------------------|-----------------------|
-| 16                    | *freq\_std\_angularac | Frequency of standard |
-|                       | celeration\_x*        | deviation of angular  |
-|                       |                       | acceleration along    |
-|                       |                       | the x axis            |
-|-----------------------|-----------------------|-----------------------|
-| 17                    | *freq\_std\_angularac | Frequency of standard |
-|                       | celeration\_y*        | deviation of angular  |
-|                       |                       | acceleration along    |
-|                       |                       | the y axis            |
-|-----------------------|-----------------------|-----------------------|
-| 18                    | *freq\_std\_angularac | Frequency of standard |
-|                       | celeration\_z*        | deviation of angular  |
-|                       |                       | acceleration along    |
-|                       |                       | the z axis            |
-|-----------------------|-----------------------|-----------------------|
-| 19                    | *freq\_std\_linearacc | Frequency of standard |
-|                       | eleration\_x*         | deviation of linear   |
-|                       |                       | acceleration along    |
-|                       |                       | the x axis            |
-|-----------------------|-----------------------|-----------------------|
-| 20                    | *freq\_std\_linearacc | Frequency of standard |
-|                       | eleration\_y*         | deviation of linear   |
-|                       |                       | acceleration along    |
-|                       |                       | the y axis            |
-|-----------------------|-----------------------|-----------------------|
-| 21                    | *freq\_std\_linearacc | Frequency of standard |
-|                       | eleration\_z*         | deviation of linear   |
-|                       |                       | acceleration along    |
-|                       |                       | the z axis            |
-|-----------------------|-----------------------|-----------------------|
-| 22                    | *freq\_std\_linearjer | Frequency of standard |
-|                       | k\_x*                 | deviation of linear   |
-|                       |                       | jerk along the x axis |
-|-----------------------|-----------------------|-----------------------|
-| 23                    | *freq\_std\_linearjer | Frequency of standard |
-|                       | k\_y*                 | deviation of linear   |
-|                       |                       | jerk along the y axis |
-|-----------------------|-----------------------|-----------------------|
-| 24                    | *freq\_std\_linearjer | Frequency of standard |
-|                       | k\_z*                 | deviation of linear   |
-|                       |                       | jerk along the z axis |
-|-----------------------|-----------------------|-----------------------|
-| 25                    | *freq\_stdmag\_angula | Frequency of standard |
-|                       | racceleration*        | deviation of the      |
-|                       |                       | magniture of angular  |
-|                       |                       | acceleration          |
-|-----------------------|-----------------------|-----------------------|
-| 26                    | *freq\_stdmag\_angula | Frequency of standard |
-|                       | rjerk*                | deviation of the      |
-|                       |                       | magniture of angular  |
-|                       |                       | jerk                  |
-|-----------------------|-----------------------|-----------------------|
-| 27                    | *freq\_stdmag\_linear | Frequency of standard |
-|                       | acceleration*         | deviation of the      |
-|                       |                       | magnitude of linear   |
-|                       |                       | acceleration          |
-|-----------------------|-----------------------|-----------------------|
-| 28                    | *freq\_stdmag\_linear | Frequency of standard |
-|                       | jerk*                 | deviation of the      |
-|                       |                       | magnitude of linear   |
-|                       |                       | jerk                  |
-|-----------------------|-----------------------|-----------------------|
-| 29                    | *mean\_angularacceler | Mean angular          |
-|                       | ation\_x*             | acceleration along x  |
-|                       |                       | axis                  |
-|-----------------------|-----------------------|-----------------------|
-| 30                    | *mean\_angularacceler | Mean angular          |
-|                       | ation\_y*             | acceleration along y  |
-|                       |                       | axis                  |
-|-----------------------|-----------------------|-----------------------|
-| 31                    | *mean\_angularacceler | Mean angular          |
-|                       | ation\_z*             | acceleration along z  |
-|                       |                       | axis                  |
-|-----------------------|-----------------------|-----------------------|
-| 32                    | *mean\_angularjerk\_x | Mean angular jerk     |
-|                       | *                     | along the x axis      |
-|-----------------------|-----------------------|-----------------------|
-| 33                    | *mean\_angularjerk\_y | Mean angular jerk     |
-|                       | *                     | along the y axis      |
-|-----------------------|-----------------------|-----------------------|
-| 34                    | *mean\_angularjerk\_z | Mean angular jerk     |
-|                       | *                     | along z axis          |
-|-----------------------|-----------------------|-----------------------|
-| 35                    | *mean\_gravityacceler | Mean gravity          |
-|                       | ation\_x*             | acceleration along    |
-|                       |                       | the x axis            |
-|-----------------------|-----------------------|-----------------------|
-| 36                    | *mean\_gravityacceler | Mean gravity          |
-|                       | ation\_y*             | acceleration along    |
-|                       |                       | the y axis            |
-|-----------------------|-----------------------|-----------------------|
-| 37                    | *mean\_gravityacceler | Mean gravity          |
-|                       | ation\_z*             | acceleration along    |
-|                       |                       | the z axis            |
-|-----------------------|-----------------------|-----------------------|
-| 38                    | *mean\_linearaccelera | Mean linear           |
-|                       | tion\_x*              | acceleration along    |
-|                       |                       | the x axis            |
-|-----------------------|-----------------------|-----------------------|
-| 39                    | *mean\_linearaccelera | Mean linear           |
-|                       | tion\_y*              | acceleration along    |
-|                       |                       | the y axis            |
-|-----------------------|-----------------------|-----------------------|
-| 40                    | *mean\_linearaccelera | Mean linear           |
-|                       | tion\_z*              | acceleration along    |
-|                       |                       | the z axis            |
-|-----------------------|-----------------------|-----------------------|
-| 41                    | *mean\_linearjerk\_x* | Mean linear jerk      |
-|                       |                       | along the x axis      |
-|-----------------------|-----------------------|-----------------------|
-| 42                    | *mean\_linearjerk\_y* | Mean linear jerk      |
-|                       |                       | along the y axis      |
-|-----------------------|-----------------------|-----------------------|
-| 43                    | *mean\_linearjerk\_z* | Mean linear jerk      |
-|                       |                       | along the z axis      |
-|-----------------------|-----------------------|-----------------------|
-| 44                    | *meanmag\_angularacce | Mean magnitude of     |
-|                       | leration*             | angular acceleration  |
-|-----------------------|-----------------------|-----------------------|
-| 45                    | *meanmag\_angularjerk | Mean magnitude of     |
-|                       | *                     | angular jerk          |
-|-----------------------|-----------------------|-----------------------|
-| 46                    | *meanmag\_gravityacce | Mean magnitude of     |
-|                       | leration*             | gravity acceleration  |
-|-----------------------|-----------------------|-----------------------|
-| 47                    | *meanmag\_linearaccel | Mean magnitude of     |
-|                       | eration*              | linear acceleration   |
-|-----------------------|-----------------------|-----------------------|
-| 48                    | *meanmag\_linearjerk* | Mean magnitude of     |
-|                       |                       | linear jerk           |
-|-----------------------|-----------------------|-----------------------|
-| 49                    | *std\_angularaccelera | Standard deviation of |
-|                       | tion\_x*              | angular acceleration  |
-|                       |                       | along the x axis      |
-|-----------------------|-----------------------|-----------------------|
-| 50                    | *std\_angularaccelera | Standard deviation of |
-|                       | tion\_y*              | angular acceleration  |
-|                       |                       | along the y axis      |
-|-----------------------|-----------------------|-----------------------|
-| 51                    | *std\_angularaccelera | Standard deviation of |
-|                       | tion\_z*              | angular acceleration  |
-|                       |                       | along the z axis      |
-|-----------------------|-----------------------|-----------------------|
-| 52                    | *std\_angularjerk\_x* | Standard deviation of |
-|                       |                       | angular jerk along    |
-|                       |                       | the x axis            |
-|-----------------------|-----------------------|-----------------------|
-| 53                    | *std\_angularjerk\_y* | Standard deviation of |
-|                       |                       | angular jerk along    |
-|                       |                       | the y axis            |
-|-----------------------|-----------------------|-----------------------|
-| 54                    | *std\_angularjerk\_z* | Standard deviation of |
-|                       |                       | angular jerk along    |
-|                       |                       | the z axis            |
-|-----------------------|-----------------------|-----------------------|
-| 55                    | *std\_gravityaccelera | Standard deviation of |
-|                       | tion\_x*              | gravity acceleration  |
-|                       |                       | along the x axis      |
-|-----------------------|-----------------------|-----------------------|
-| 56                    | *std\_gravityaccelera | Standard deviation of |
-|                       | tion\_y*              | gravity acceleration  |
-|                       |                       | along the y axis      |
-|-----------------------|-----------------------|-----------------------|
-| 57                    | *std\_gravityaccelera | Standard deviation of |
-|                       | tion\_z*              | gravity acceleration  |
-|                       |                       | along the z axis      |
-|-----------------------|-----------------------|-----------------------|
-| 58                    | *std\_linearaccelerat | Standard deviation of |
-|                       | ion\_x*               | linear acceleration   |
-|                       |                       | along the x axis      |
-|-----------------------|-----------------------|-----------------------|
-| 59                    | *std\_linearaccelerat | Standard deviation of |
-|                       | ion\_y*               | linear acceleration   |
-|                       |                       | along the y axis      |
-|-----------------------|-----------------------|-----------------------|
-| 60                    | *std\_linearaccelerat | Standard deviation of |
-|                       | ion\_z*               | linear acceleration   |
-|                       |                       | along the z axis      |
-|-----------------------|-----------------------|-----------------------|
-| 61                    | *std\_linearjerk\_x*  | Standard deviation of |
-|                       |                       | linear jerk along the |
-|                       |                       | x axis                |
-|-----------------------|-----------------------|-----------------------|
-| 62                    | *std\_linearjerk\_y*  | Standard deviation of |
-|                       |                       | linear jerk along the |
-|                       |                       | y axis                |
-|-----------------------|-----------------------|-----------------------|
-| 63                    | *std\_linearjerk\_z*  | Standard deviation of |
-|                       |                       | linear jerk along the |
-|                       |                       | z axis                |
-|-----------------------|-----------------------|-----------------------|
-| 64                    | *stdmag\_angularaccel | Standard deviation of |
-|                       | eration*              | magnitude of angular  |
-|                       |                       | acceleration          |
-|-----------------------|-----------------------|-----------------------|
-| 65                    | *stdmag\_angularjerk* | Standard deviation of |
-|                       |                       | magnitude of angular  |
-|                       |                       | jerk                  |
-|-----------------------|-----------------------|-----------------------|
-| 66                    | *stdmag\_gravityaccel | Standard deviation of |
-|                       | eration*              | magnitude of gravity  |
-|                       |                       | acceleration          |
-|-----------------------|-----------------------|-----------------------|
-| 67                    | *stdmag\_linearaccele | Standard deviation of |
-|                       | ration*               | magnitude of linear   |
-|                       |                       | acceleration          |
-|-----------------------|-----------------------|-----------------------|
-| 68                    | *stdmag\_linearjerk*  | Standard deviation of |
-|                       |                       | magnitude of linear   |
-|                       |                       | jerk                  |
+| No.                   | **Measure**                                   | **Description**                                                          |
+|-----------------------|-----------------------------------------------|--------------------------------------------------------------------------|
+| 3                     | *freq\_mean\_angularacceleration\_x*          | Mean frequency of angular acceleration along the x axis                  |
+| 4                     | *freq\_mean\_angularacceleration\_y*          | Mean frequency of angular acceleration along the y axis                  |
+| 5                     | *freq\_mean\_angularacceleration\_z*          | Mean frequency of angular acceleration along the z axis                  |
+| 6                     | *freq\_mean\_linearacceleration\_x*           | Mean frequency of linear acceleration along the x axis                   |
+| 7                     | *freq\_mean\_linearacceleration\_y*           | Mean frequency of linear acceleration along the y axis                   |
+| 8                     | *freq\_mean\_linearacceleration\_z*           | Mean frequency of linear acceleration along the z axis                   |
+| 9                     | *freq\_mean\_linearjerk\_x*                   | Mean frequency of linear jerk along the x axis                           |
+| 10                    | *freq\_mean\_linearjerk\_y*                   | Mean frequency of linear jerk along the y axis                           |
+| 11                    | *freq\_mean\_linearjerk\_z*                   | Mean frequency of linear jerk along the z axis                           |
+| 12                    | *freq\_meanmag\_angularaccleration*           | Mean frequency of magnitude of angular acceleration                      |
+| 13                    | *freq\_meanmag\_angularjerk*                  | Mean frequency of magnitude of angular jerk                              |
+| 14                    | *freq\_meanmag\_linearaccleration*            | Mean frequency of magnitude of linear acceleration                       |
+| 15                    | *freq\_meanmag\_linearjerk*                   | Mean frequency of magnitude of linear jerk                               |
+| 16                    | *freq\_std\_angularacceleration\_x*           | Frequency of standard deviation of angular acceleration along the x axis |
+| 17                    | *freq\_std\_angularacceleration\_y*           | Frequency of standard deviation of angular acceleration along the y axis |
+| 18                    | *freq\_std\_angularacceleration\_z*           | Frequency of standard deviation of angular acceleration along the z axis |
+| 19                    | *freq\_std\_linearacceleration\_x*            | Frequency of standard deviation of linear acceleration along the x axis  |
+| 20                    | *freq\_std\_linearacceleration\_y*            | Frequency of standard deviation of linear acceleration along the y axis  |
+| 21                    | *freq\_std\_linearacceleration\_z*            | Frequency of standard deviation of linear acceleration along the z axis  |
+| 22                    | *freq\_std\_linearjerk\_x*                    | Frequency of standard deviation of linear jerk along the x axis          |
+| 23                    | *freq\_std\_linearjerk\_y*                    | Frequency of standard deviation of linear jerk along the y axis          |
+| 24                    | *freq\_std\_linearjerk\_z*                    | Frequency of standard deviation of linear jerk along the z axis          |
+| 25                    | *freq\_stdmag\_angularacceleration*           | Frequency of standard deviation of magnitude of angular acceleration     |
+| 26                    | *freq\_stdmag\_angularjerk*                   | Frequency of standard deviation of magnitude of angular jerk             |
+| 27                    | *freq\_stdmag\_linearacceleration*            | Frequency of standard deviation of magnitude of linear acceleration      |
+| 28                    | *freq\_stdmag\_linearjerk*                    | Frequency of standard deviation of magnitude of linear jerk              |
+| 29                    | *mean\_angularacceleration\_x*                | Mean angular acceleration along the x axis                               |
+| 30                    | *mean\_angularacceleration\_y*                | Mean angular acceleration along the y axis                               |
+| 31                    | *mean\_angularacceleration\_z*                | Mean angular acceleration along the z axis                               |
+| 32                    | *mean\_angularjerk\_x*                        | Mean angular jerk along the x axis                                       |
+| 33                    | *mean\_angularjerk\_y*                        | Mean angular jerk along the y axis                                       |
+| 34                    | *mean\_angularjerk\_z*                        | Mean angular jerk along the z axis                                       |
+| 35                    | *mean\_gravityacceleration\_x*                | Mean gravity acceleration along the x axis                               |
+| 36                    | *mean\_gravityacceleration\_y*                | Mean gravity acceleration along the y axis                               |
+| 37                    | *mean\_gravityacceleration\_z*                | Mean gravity acceleration along the z axis                               |
+| 38                    | *mean\_linearacceleration\_x                  | Mean linear acceleration along the x axis                                |
+| 39                    | *mean\_linearacceleration\_y                  | Mean linear acceleration along the y axis                                |
+| 40                    | *mean\_linearacceleration\_z                  | Mean linear acceleration along the z axis                                |
+| 41                    | *mean\_linearjerk\_x*                         | Mean linear jerk along the x axis                                        |
+| 42                    | *mean\_linearjerk\_y*                         | Mean linear jerk along the y axis                                        |
+| 43                    | *mean\_linearjerk\_z*                         | Mean linear jerk along the z axis                                        |
+| 44                    | *meanmag\_angularacceleration*                | Mean magnitude of angular acceleration                                   |
+| 45                    | *meanmag\_angularjerk*                        | Mean magnitude of angular jerk                                           |
+| 46                    | *meanmag\_gravityacceleration*                | Mean magnitude of gravity acceleration                                   |
+| 47                    | *meanmag\_linearacceleration*                 | Mean magnitude of linear acceleration                                    |
+| 48                    | *meanmag\_linearjerk*                         | Mean magnitude of linear jerk                                            |
+| 49                    | *std\_angularacceleration\_x*                 | Standard deviation of angular acceleration along the x axis              |
+| 50                    | *std\_angularacceleration\_y*                 | Standard deviation of angular acceleration along the y axis              |
+| 51                    | *std\_angularacceleration\_z*                 | Standard deviation of angular acceleration along the z axis              |
+| 52                    | *std\_angularjerk\_x*                         | Standard deviation of angular jerk along the x axis                      |
+| 53                    | *std\_angularjerk\_y*                         | Standard deviation of angular jerk along the y axis                      |
+| 54                    | *std\_angularjerk\_z*                         | Standard deviation of angular jerk along the z axis                      |
+| 55                    | *std\_gravityacceleration\_x*                 | Standard deviation of gravity acceleration along the x axis              |
+| 56                    | *std\_gravityacceleration\_y*                 | Standard deviation of gravity acceleration along the y axis              |
+| 57                    | *std\_gravityacceleration\_z*                 | Standard deviation of gravity acceleration along the z axis              |
+| 58                    | *std\_linearacceleration\_x*                  | Standard deviation of linear acceleration along the x axis               |
+| 59                    | *std\_linearacceleration\_y*                  | Standard deviation of linear acceleration along the y axis               |
+| 60                    | *std\_linearacceleration\_z*                  | Standard deviation of linear acceleration along the z axis               |
+| 61                    | *std\_linearjerk\_x*                          | Standard deviation of linear jerk along the x axis                       |
+| 62                    | *std\_linearjerk\_y*                          | Standard deviation of linear jerk along the y axis                       |
+| 63                    | *std\_linearjerk\_z*                          | Standard deviation of linear jerk along the z axis                       |
+| 64                    | *stdmag\_angularacceleration*                 | Standard deviation of magnitude of angular acceleration                  |
+| 65                    | *stdmag\_angularjerk*                         | Standard deviation of magnitude of angular jerk                          |
+| 66                    | *stdmag\_gravityacceleration*                 | Standard deviation of magnitude of gravity acceleration                  |
+| 67                    | *stdmag\_linearacceleration*                  | Standard deviation of magnitude of linear acceleration                   |
+| 68                    | *stdmag\_linearjerk*                          | Standard deviation of magnitude of linear jerk                           |
 
 [^1]: It is unclear whether this was an oversight or intentional. If the
     latter, the core reason is not specified as far as the author of

@@ -2,7 +2,8 @@
 
 This document describes the format of the summarized data set generated
 from the UCI HAR Dataset (available from the UCI Machine Learning
-Repository). The data set is available from [here][]
+Repository). The data set is available from [this page][]. The data set
+can be download from [here][].
 
 The document is divided into four sections: reading; cleaning;
 transformations; and file format.
@@ -367,4 +368,5 @@ second columns are (*subject, activity*).
 | 67                    | *stdmag\_linearacceleration*                  | Standard deviation of magnitude of linear acceleration                   |
 | 68                    | *stdmag\_linearjerk*                          | Standard deviation of magnitude of linear jerk                           |
 
-[here]: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+[this page]: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+[here]: http://archive.ics.uci.edu/ml/machine-learning-databases/00240/UCI%20HAR%20Dataset.zip

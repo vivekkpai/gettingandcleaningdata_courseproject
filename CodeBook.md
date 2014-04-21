@@ -287,8 +287,8 @@ Each of the columns and their ranges is described below.
 |-----------------------|-----------------------|-----------------------|-----------------------|------------------------------------------------------------------------------------|
 | *subject*             | The subject performing some activty           | integer               | [1, 30]                                                                            |
 | *activity*            | The activity that was monitored               | factor                | Levels: **walking, walkingupstairs, walkingdownstairs, standing, sitting, laying** |
-| *measure*             | The measure that was  monitored               | factor                | See the values below since tables can't have newlines in md           |
-| *value*               | The mean value of the measure                 | numeric               |			                                                                         |
+| *measure*             | The measure that was  monitored               | factor                | See the values below since tables can't have newlines in md                        |
+| *mean*                | The mean value of the measure                 | numeric               |			                                                                         |
 
 The values for the *measures* is as follows. These follow the same
 convention as specified in the section *Cleaning the Data*. The '*No.'*

@@ -17,11 +17,11 @@ only the high level functions are described here.
 
 ***Note: The script is tested on:***
 
-| **Environment**     | **Description**                             |
-|--------------------:|:--------------------------------------------|
-| OS                  | *Mac OS X 10.8.5*                           |
-| R Version           | *3.0.3 (2014-03-06) -- "Warm Puppy"*        |
-| Platform            | *x86_64-apple-darwin10.8.0 (64-bit)*        |
+        | **Environment**     | **Description**                             |
+        |--------------------:|:--------------------------------------------|
+        | OS                  | *Mac OS X 10.8.5*                           |
+        | R Version           | *3.0.3 (2014-03-06) -- "Warm Puppy"*        |
+        | Platform            | *x86_64-apple-darwin10.8.0 (64-bit)*        |
 
 ***The script may require re-work on Microsoft Windows operating system or
 on Linux variants***          

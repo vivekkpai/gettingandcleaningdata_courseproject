@@ -36,10 +36,9 @@ of the following steps:
 
 1.  Install the plyr package in R. At the R console type the following
     command
-
-```R
-install.packages("plyr")
-```
+    ```R
+    install.packages("plyr")
+    ```
 
 2.  Install the reshape2 package in R. At the R console type the following
     command

@@ -17,7 +17,6 @@ subdirectory is identical.
 
 1.  Common file: **activity\_labels.txt** which contains    
   - Column 1: An identifier with range [1, 6]
-
   - Column 2: A corresponding activity name with range [WALKING,
     WALKING\_UPSTAIRS, WALKING\_DOWNSTAIRS, SITTING, STANDING,
     LAYING]
@@ -26,7 +25,6 @@ subdirectory is identical.
   - Column 1: An identifier with range [1, 561] indentifying the
     index within the feature vector in **X\_train.txt** (see
     below)
-
   - Column 2: A corresponding feature name
 
 3.  Training file: **subject\_train.txt** which contains one

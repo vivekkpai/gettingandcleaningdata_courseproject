@@ -334,9 +334,9 @@ second columns are (*subject, activity*).
 | 35                    | *mean\_gravityacceleration\_x*                | Mean gravity acceleration along the x axis                               |
 | 36                    | *mean\_gravityacceleration\_y*                | Mean gravity acceleration along the y axis                               |
 | 37                    | *mean\_gravityacceleration\_z*                | Mean gravity acceleration along the z axis                               |
-| 38                    | *mean\_linearacceleration\_x                  | Mean linear acceleration along the x axis                                |
-| 39                    | *mean\_linearacceleration\_y                  | Mean linear acceleration along the y axis                                |
-| 40                    | *mean\_linearacceleration\_z                  | Mean linear acceleration along the z axis                                |
+| 38                    | *mean\_linearacceleration\_x*                 | Mean linear acceleration along the x axis                                |
+| 39                    | *mean\_linearacceleration\_y*                 | Mean linear acceleration along the y axis                                |
+| 40                    | *mean\_linearacceleration\_z*                 | Mean linear acceleration along the z axis                                |
 | 41                    | *mean\_linearjerk\_x*                         | Mean linear jerk along the x axis                                        |
 | 42                    | *mean\_linearjerk\_y*                         | Mean linear jerk along the y axis                                        |
 | 43                    | *mean\_linearjerk\_z*                         | Mean linear jerk along the z axis                                        |

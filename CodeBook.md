@@ -166,7 +166,7 @@ Given this information, constructing a name is easy. For example, the
 time-series value of the standard deviation of the angular jerk along Z
 is: *std\_angularjerk\_z*. Similarly, a frequency domain value of the
 mean linear acceleration along Y is:
-*freq\_mean\_linearacceleration\_Y*. Note the prefix in the case of the
+*freq\_mean\_linearacceleration\_y*. Note the prefix in the case of the
 frequency domain measure.
 
 Finally, dashes are removed and replace by underscores. Underscores add

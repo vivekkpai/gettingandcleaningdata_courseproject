@@ -276,7 +276,7 @@ is in CSV format and encoded using the UTF-8 encoding (to make strings
 OS agnostic). The file has the following structure.
 
 1.  Row 1: Header with column names. The names are *(subject, activity,
-    measure, value).*
+    measure, mean).*
 
 2.  Row 2 - *n*: Actual data for each of the columns; there are no
     columns with missing data

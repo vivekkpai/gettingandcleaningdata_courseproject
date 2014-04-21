@@ -16,20 +16,20 @@ the subdirectory "train". The structure of the data in the "test"
 subdirectory is identical.
 
 1.  Common file: **activity\_labels.txt** which contains    
-  - Column 1: An identifier with range [1, 6]
-  - Column 2: A corresponding activity name with range [WALKING,
+  * Column 1: An identifier with range [1, 6]
+  * Column 2: A corresponding activity name with range **[WALKING,
     WALKING\_UPSTAIRS, WALKING\_DOWNSTAIRS, SITTING, STANDING,
-    LAYING]
+    LAYING]**
 
 2.  Common file: **features.txt** which contains
-  - Column 1: An identifier with range [1, 561] indentifying the
+  * Column 1: An identifier with range **[1, 561]** indentifying the
     index within the feature vector in **X\_train.txt** (see
     below)
-  - Column 2: A corresponding feature name
+  * Column 2: A corresponding feature name
 
 3.  Training file: **subject\_train.txt** which contains one
     integer index per row identifying the subject who performed the
-    activity. The range of each row is [1, 30]
+    activity. The range of each row is **[1, 30]**
 
 4.  Training file: **y\_train.txt** which contains one integer index
     per row identifying the activity being observed. The integer
@@ -178,16 +178,16 @@ also the case in the original data
 Overall the rationale for the naming convention is as follows. Note that
 we choose to have underscores in our names rather than not.
 
--   Its easy to read; not having underscores makes it very difficult to
+*   Its easy to read; not having underscores makes it very difficult to
     read and locate data during exploration
 
--   The structure cleanly separates the frequency domain information
+*   The structure cleanly separates the frequency domain information
     from the time series
 
--   Operations are plainly visible and so are the different motion
+*   Operations are plainly visible and so are the different motion
     components
 
--   It is easy to reconstruct the names programmatically given the
+*   It is easy to reconstruct the names programmatically given the
     regular structure
 
 On the downside, the names are rather long. However, reducing the length

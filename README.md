@@ -42,10 +42,9 @@ of the following steps:
 
 2.  Install the reshape2 package in R. At the R console type the following
     command
-
-```R
+    ```R
     install.packages("reshape2")
-```
+    ```
 
 3.  Download the file run\_analysis.R into a local directory using
     git or by downloading an archive of the tip of the master
@@ -60,13 +59,15 @@ Running the script is simple and consists of two steps.
     *run\_analysis.R* file
 
 2.  Source the file using the following command at the R console
-```R
-source("run_analysis.R")
-```
+    ```R
+    source("run_analysis.R")
+    ```
+
 3.  Run the top-level function create\_summary() at the R console
-```R
+    ```R
     create_summary()
-```
+    ```
+
 After completing step 3, a file **summary.txt** will be in the
 sub-directory UCI HAR Dataset which will contain the summarized data.
 The structure of this file is described in detail in the file
@@ -86,8 +87,9 @@ CodeBook.md available in this repository.
     *\~/tom/assignment* passing this path to *create\_summary()* will
     avoid downloading the data set. In order to do this, modify the
     command in step 3 above as follows.
-
+    ```R
     create_summary("~/tom/assignment")
+    ```
 
 # High-level description the script
 
@@ -102,19 +104,19 @@ is commented extensively for all functions.
 
 The script downloads the data using the following steps.
 
-    1.  The script checks whether the data set is already downloaded
+1.  The script checks whether the data set is already downloaded
 
-    2.  If the data set is not downloaded, it is downloaded and unzipped
-        as a sub-directory (name: **UCI\_HAR\_Dataset**) of the working
-        directory. The data set is downloaded from the [UCI Machine
-        Learning Repository][]
+2.  If the data set is not downloaded, it is downloaded and unzipped
+    as a sub-directory (name: **UCI\_HAR\_Dataset**) of the working
+    directory. The data set is downloaded from the [UCI Machine
+    Learning Repository][]
 
-    3.  If the sub-directory already exists, the script runs basic
-        validity checks to see if the files are available (the contents
-        of the files are not verified).
+3.  If the sub-directory already exists, the script runs basic
+    validity checks to see if the files are available (the contents
+    of the files are not verified).
 
-    4.  If validity check fails, the script deletes the directory and
-        downloads as if the data set were not available locally.
+4.  If validity check fails, the script deletes the directory and
+    downloads as if the data set were not available locally.
 
 ## Feature name extraction
 
@@ -122,17 +124,16 @@ The script downloads the data using the following steps.
 
 The script proceeds to read the feature names as follows.
 
-    1.  Read the feature names - file:
-        **UCI\_HAR\_Dataset/features.txt**
+1.  Read the feature names;
+    file: **UCI\_HAR\_Dataset/features.txt**
 
-    2.  Extracts only the features for mean and standard deviation
+2.  Extracts only the features for mean and standard deviation
 
-    3.  Removes parenthesis from the names and converts to lower case
+3.  Removes parenthesis from the names and converts to lower case
 
-    4.  Renames the features to a "friendly format" - see
-        **CodeBook.md**
+4.  Renames the features to a "friendly format" - see **CodeBook.md**
 
-    5.  Replaces all dashes by underscores
+5.  Replaces all dashes by underscores
 
 ## Data set reading
 
@@ -142,35 +143,36 @@ Once the data set is available, the script performs the following tasks
 for each of the data sets. The placeholder *\<dataset\>* is either
 *train* or *test.*
 
-    1.  Reads activity labels: file:
-        **UCI\_HAR\_Dataset/activity\_labels.txt**
+1.  Reads activity labels; 
+    file: **UCI\_HAR\_Dataset/activity\_labels.txt**
 
-    2.  Reads activity indexes: file
-        **UCI\_HAR\_Dataset/y\_***\<dataset\>***.txt**
+2.  Reads activity indexes; 
+    file: **UCI\_HAR\_Dataset/y\_***\<dataset\>***.txt**
 
-    3.  Merges data from [1] and [2] by activity index to form
-        descriptive labels for each of the activities in the
-        observations
+3.  Merges data from [1] and [2] by activity index to form
+    descriptive labels for each of the activities in the
+    observations
 
-    4.  Reads subject data: file
-        **UCI\_HAR\_Dataset/***\<dataset\>*/**subject\_***\<dataset\>***.txt**
+4.  Reads subject data; 
+    file: **UCI\_HAR\_Dataset/***\<dataset\>*/**subject\_***\<dataset\>***.txt**
 
-    5.  Reads observations: file
-        **UCI\_HAR\_Dataset/***\<dataset\>*/**X\_***\<dataset\>***.txt**
+5.  Reads observations;
+    file: **UCI\_HAR\_Dataset/***\<dataset\>*/**X\_***\<dataset\>***.txt**
 
-    6.  Adds columns for subject and activity data from [3] and [4]
+6.  Adds columns for subject and activity data from [3] and [4]
 
 ## Data set combining, summarization
 
 ### Functions: *read\_datasets(), compute\_means()*
 
-    1.  The data sets (train and test) are combined to form a single
-        data set
+1.  **read_datasets()** combines the data sets (train and test) 
+    to form a single data set 
 
-    2.  The data is molten using the reshape2 package to form a long
-        format
+2.  ** compute_means()** then 'melts' the data using the reshape2 package
+    to form a long format
 
-    3.  The data is summarized using the mean function and plyr package
+3.  Finally, **compute_means()** summarizes the data using the **mean()** 
+    function and **ddply()** from the ***plyr*** package
 
 ## Summary creation and loading
 

@@ -34,36 +34,40 @@ here.
 Installation of the script on a machine is equally simple. It consists
 of the following steps:
 
-    1.  Install the plyr package in R. At the R console type the following
-        command
+1.  Install the plyr package in R. At the R console type the following
+    command
 
-	install.packages("plyr")
+```R
+install.packages("plyr")
+```
 
-    2.  Install the reshape2 package in R. At the R console type the
-        following command
+2.  Install the reshape2 package in R. At the R console type the following
+    command
 
-            install.packages("reshape2")
+```R
+    install.packages("reshape2")
+```
 
-    3.  Download the file run\_analysis.R into a local directory using
-        git or by downloading an archive of the tip of the master
-        branch. Note that the directory must be writable as the script
-        will create a subdirectory immediately under it
+3.  Download the file run\_analysis.R into a local directory using
+    git or by downloading an archive of the tip of the master
+    branch. Note that the directory must be writable as the script
+    will create a subdirectory immediately under it
 
 ## Running the script
 
 Running the script is simple and consists of two steps.
 
-    1.  Change the working directory to the location of the
-        *run\_analysis.R* file
+1.  Change the working directory to the location of the
+    *run\_analysis.R* file
 
-    2.  Source the file using the following command at the R console
-
-            source("run_analysis.R")
-
-    3.  Run the top-level function create\_summary() at the R console
-
-            create_summary()
-
+2.  Source the file using the following command at the R console
+```R
+source("run_analysis.R")
+```
+3.  Run the top-level function create\_summary() at the R console
+```R
+    create_summary()
+```
 After completing step 3, a file **summary.txt** will be in the
 sub-directory UCI HAR Dataset which will contain the summarized data.
 The structure of this file is described in detail in the file
@@ -84,7 +88,7 @@ CodeBook.md available in this repository.
     avoid downloading the data set. In order to do this, modify the
     command in step 3 above as follows.
 
-        create_summary("~/tom/assignment")
+    create_summary("~/tom/assignment")
 
 # High-level description the script
 

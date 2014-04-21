@@ -110,7 +110,10 @@ A second problem is that some of the names do not follow the same naming
 convention as other features. Such names start with the prefix
 *"fbodybody"* where as all other start with only *"tbody"* or *"fbody"*.
 For such names, we remove the second instance of the word 'body'. The
-resulting names are in line with the naming convention.[^1]
+resulting names are in line with the naming convention.
+
+> It is unclear why the specified names are structured as such. I am not
+> aware of such a reason (including in the paper quoted on the site) 
 
 ### Cryptic names
 
@@ -131,6 +134,7 @@ The names have four parts separated by underscores.
     operation string; and the meaning is summarized in the table below.
 
     | **Substring from features.txt**     | **Operation**         | **Meaning**                        |
+    |-------------------------------------|-----------------------|------------------------------------|
     | mean()                              | mean                  | Mean (average)                     |
     | std()                               | std                   | Standard Deviation                 |
     | mag-mean()                          | meanmag               | Mean of the magnitude              |
@@ -281,8 +285,8 @@ Each of the columns and their ranges is described below.
 | **Column**            | **Description**                               | **Type**              | **Range**                                                                          |
 |-----------------------|-----------------------|-----------------------|-----------------------|------------------------------------------------------------------------------------|
 | *subject*             | The subject performing some activty           | integer               | [1, 30]                                                                            |
-| *activity*            | The activity that was monitored               | factor                | Levels: walking, walkingupstairs, walkingdownstairs, standing, sitting, laying     |
-| *measure*             | The measure that was  monitored               | factor                | See the values below since tables can't have (apparently) newlines in md           |
+| *activity*            | The activity that was monitored               | factor                | Levels: **walking, walkingupstairs, walkingdownstairs, standing, sitting, laying** |
+| *measure*             | The measure that was  monitored               | factor                | See the values below since tables can't have newlines in md           |
 | *value*               | The mean value of the measure                 | numeric               |			                                                                         |
 
 The values for the *measures* is as follows. These follow the same
@@ -293,6 +297,8 @@ second columns are (*subject, activity*).
 
 | No.                   | **Measure**                                   | **Description**                                                          |
 |-----------------------|-----------------------------------------------|--------------------------------------------------------------------------|
+| 1                     | *subject*                                     | The subject performing some activity; see table earlier for range        |
+| 2                     | *activity*                                    | The activity being performed; see table earlier for range                |
 | 3                     | *freq\_mean\_angularacceleration\_x*          | Mean frequency of angular acceleration along the x axis                  |
 | 4                     | *freq\_mean\_angularacceleration\_y*          | Mean frequency of angular acceleration along the y axis                  |
 | 5                     | *freq\_mean\_angularacceleration\_z*          | Mean frequency of angular acceleration along the z axis                  |
@@ -360,8 +366,4 @@ second columns are (*subject, activity*).
 | 67                    | *stdmag\_linearacceleration*                  | Standard deviation of magnitude of linear acceleration                   |
 | 68                    | *stdmag\_linearjerk*                          | Standard deviation of magnitude of linear jerk                           |
 
-[^1]: It is unclear whether this was an oversight or intentional. If the
-    latter, the core reason is not specified as far as the author of
-    this document is aware of.
-
-  [here]: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones
+[here]: http://archive.ics.uci.edu/ml/datasets/Human+Activity+Recognition+Using+Smartphones

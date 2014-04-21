@@ -125,7 +125,8 @@ below.
 The names have four parts separated by underscores.
 
 1.  *Prefix:* This is used to indicate frequency domain data only. For
-    time-series data, the prefix is always "" (the empty string)
+    time-series data, the prefix is always "" (the empty string). For
+    frequency domain data, the prefix is *freq-*
 
 2.  *Aggregate operations:* These are the aggregates that we are
     interested in. In fact the aggregates mentioned below are exactly

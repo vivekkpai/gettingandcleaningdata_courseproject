@@ -147,17 +147,17 @@ for each of the data sets. The placeholder *\<dataset\>* is either
     file: **UCI\_HAR\_Dataset/activity\_labels.txt**
 
 2.  Reads activity indexes; 
-    file: **UCI\_HAR\_Dataset/y\_***\<dataset\>***.txt**
+    file: **UCI\_HAR\_Dataset/y\_**\<dataset\>**.txt**
 
 3.  Merges data from [1] and [2] by activity index to form
     descriptive labels for each of the activities in the
     observations
 
 4.  Reads subject data; 
-    file: **UCI\_HAR\_Dataset/***\<dataset\>*/**subject\_***\<dataset\>***.txt**
+    file: **UCI\_HAR\_Dataset/**\<dataset\>**/subject\_**\<dataset\>**.txt**
 
 5.  Reads observations;
-    file: **UCI\_HAR\_Dataset/***\<dataset\>*/**X\_***\<dataset\>***.txt**
+    file: **UCI\_HAR\_Dataset/**\<dataset\>**/X\_**\<dataset\>**.txt**
 
 6.  Adds columns for subject and activity data from [3] and [4]
 
@@ -165,14 +165,14 @@ for each of the data sets. The placeholder *\<dataset\>* is either
 
 ### Functions: *read\_datasets(), compute\_means()*
 
-1.  **read_datasets()** combines the data sets (train and test) 
+1.  *read_datasets()* combines the data sets (train and test) 
     to form a single data set 
 
-2.  ** compute_means()** then 'melts' the data using the reshape2 package
+2.  *compute_means()* then 'melts' the data using the reshape2 package
     to form a long format
 
-3.  Finally, **compute_means()** summarizes the data using the **mean()** 
-    function and **ddply()** from the ***plyr*** package
+3.  Finally, *compute_means()* summarizes the data using the *mean()*
+    function and *ddply()* from the ***plyr*** package
 
 ## Summary creation and loading
 
@@ -188,7 +188,7 @@ As a first step, the function downloads the data using
 *compute\_means().* As a final step, the function writes out the summary
 to the disk.
 
-Loading is as simple. A single function load\_summary() is provided. The
+Loading is as simple. A single function *load\_summary()* is provided. The
 function defaults to the current working directory for searching for
 summarized data. The function is loaded by reading the CSV and returned.
 
